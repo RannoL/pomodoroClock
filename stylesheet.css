@@ -24,7 +24,7 @@ h2 {
 }
 
 header {
-    background-color: rgb(226, 226, 224);
+    background-color: #E4DFDA;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -85,17 +85,23 @@ header {
     margin-top: 45px;
 }
 
+#startBtn {
+    font-size: 100%;
+    width: 80px;
+}
+
 button {
     background-color: #E45A5B;
     padding: 10px;
     border: none;
     border-radius: 5%;
-}
-
-#bodyWrap button {
-    font-size: 95%;
     color: #FFFEEE;
 }
+
+#choicesWrap button {
+    font-size: 95%;
+}
+
 
 button:hover {
     transform: scale(1.05);
@@ -109,7 +115,7 @@ footer{
     bottom: 0;
     height: 70px;
     width: 100%;
-    background-color: #E45A5B;
+    background-color: #E4DFDA;
     justify-content: center;
 }
 

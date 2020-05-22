@@ -12,7 +12,7 @@
     <body> 
         <header>
             <div id= "leftHeader">
-                <h1>Pomodoro clock</h1>
+                <h1>Pomodoro Clock</h1>
                 <h2>It's time to work!</h2>                
             </div>
             <span id="settingsWrap">
@@ -24,15 +24,15 @@
             <div id="bodyWrap">
 
                 <div id="choicesWrap">
-                    <button>Pomodoro</button>
-                    <button>Short Break</button>
-                    <button>Long Break</button>
+                    <button onclick="resetTimer">Pomodoro</button>
+                    <button onclick="sBreak">Short Break</button>
+                    <button onclick="">Long Break</button>
                 </div>
 
-                <div id= "clockText">25:00</div>
+                <div id= "clockText">00:10</div>
 
                 <div id="startBtnWrap">
-                    <button id="startBtn">START</button>
+                    <button id="startBtn" onclick="start()">Start</button>
                 </div>
             </div>
         </main>
