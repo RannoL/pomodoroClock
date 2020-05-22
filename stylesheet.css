@@ -1,0 +1,92 @@
+html {
+    background-color: #FFFEEE;
+    color: #3A322E;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 120%;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h2 {
+    font-size: 100%;
+    margin-left: 0.2em;
+}
+
+header {
+    background-color: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+#bodyWrap{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    margin-top: -18%;
+    margin-left: -25%;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 30%;
+    justify-content: center;
+    align-content: center;
+    background-color: #D92B33;
+    border: 5px solid #3A322E;
+    border-radius: 1%;
+    color:#FFFEEE;
+}
+
+#choicesWrap{
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 2em;
+    height: 2em;
+}
+
+#clockText {
+    width: 100%;
+    text-align: center;
+    font-size: 450%;
+
+}
+
+#startBtnWrap {
+    display: flex;
+    width: 100%;
+    height: 2em;
+    align-self: flex-end;
+    justify-content: center;
+    margin-top: 1.7em;
+
+}
+
+#statusText{
+    margin-left: 0.3em;
+}
+
+button {
+    background-color: #E45A5B;
+    padding: 10px;
+    border: none;
+    border-radius: 5%;
+}
+
+#bodyWrap button {
+    font-size: 80%;
+    color: #FFFEEE;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #E14A4D;
+    transition: 0.2s;
+}
