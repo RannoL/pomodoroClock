@@ -1,4 +1,7 @@
 let startClock;
+let initialClock = "25:00";
+let shortBreak = "05:00";
+let longBreak = "10:00"
 
 function countdown () {
     
@@ -24,11 +27,28 @@ function countdown () {
     }
 }
 
-function start (){
-    startClock = setInterval(countdown, 1000);
-    document.querySelector('#startBtn').textContent = "Reset";
+function toUpperCase(str){
+    return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
 }
 
-function stopClock(){
+function changeStartBtn (state) {
+    document.querySelector('#startBtn').textContent = `${toUpperCase(state)}`;
+    document.querySelector('#startBtn').setAttribute('onclick', `${state}()`)
+
+}
+
+function start (){
+    startClock = setInterval(countdown, 1000);
+    changeStartBtn("stop");
+}
+
+function stop(){
     clearInterval(startClock)
+    changeStartBtn("start");
+
+}
+
+function resetTimer(){
+    stop();
+    document.querySelector("#clockText").textContent = initialClock;
 }
