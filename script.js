@@ -21,10 +21,16 @@ function countdown () {
         document.querySelector('#clockText').textContent = `00:00`;
         clearInterval(startClock);  
 /*         playSound(); */
-        document.querySelector('h2').textContent = "It's time to rest!";
-        document.getElementById('bodyWrap').style.background = "#48A9A6";
+        timeToRest();
 
     }
+}
+
+function timeToRest(){
+    document.querySelector('h2').textContent = "It's time to rest!";
+    document.getElementById('bodyWrap').style.background = "#48A9A6";
+    document.querySelector('#startBtn').textContent = 'Reset'
+    document.querySelector('#startBtn').setAttribute('onclick', `resetTimer()`)
 }
 
 function toUpperCase(str){
@@ -38,7 +44,7 @@ function changeStartBtn (state) {
 }
 
 function start (){
-    startClock = setInterval(countdown, 1000);
+    startClock = setInterval(countdown, 100);
     changeStartBtn("stop");
 }
 
@@ -51,4 +57,5 @@ function stop(){
 function resetTimer(){
     stop();
     document.querySelector("#clockText").textContent = initialClock;
+    document.querySelector('#startBtn').setAttribute('onclick', `start()`)
 }
