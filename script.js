@@ -44,7 +44,7 @@ function changeStartBtn (state) {
 }
 
 function start (){
-    startClock = setInterval(countdown, 100);
+    startClock = setInterval(countdown, 1000);
     changeStartBtn("stop");
 }
 
@@ -56,6 +56,24 @@ function stop(){
 
 function resetTimer(){
     stop();
+    document.querySelector('h2').textContent = "It's time to work!";
+    document.getElementById('bodyWrap').style.background = "#D92B33";
     document.querySelector("#clockText").textContent = initialClock;
     document.querySelector('#startBtn').setAttribute('onclick', `start()`)
+}
+
+function sBreak(){
+    stop();
+    document.querySelector('h2').textContent = "It's time to rest!";
+    document.getElementById('bodyWrap').style.background = "#48A9A6";
+    document.querySelector("#clockText").textContent = shortBreak;
+    start();
+}
+
+function lBreak(){
+    stop();
+    document.querySelector('h2').textContent = "It's time to rest!";
+    document.getElementById('bodyWrap').style.background = "#48A9A6";
+    document.querySelector("#clockText").textContent = longBreak;
+    start();
 }
