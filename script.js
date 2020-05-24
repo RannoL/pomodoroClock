@@ -1,14 +1,17 @@
-let startClock;
+let startClock = false;
+let pomodoro;
+let breakIdenty;
+/* let breakCount = 0; */
 let initialClock = "25:00";
 let shortBreak = "05:00";
-let longBreak = "10:00"
+let longBreak = "10:00";
 
 function countdown () {
     
     let clockText = document.querySelector('#clockText').textContent;
     let arr = clockText.split(":");
 
-    if(arr[0] <= 0){
+    if(arr[0] <= 0 && arr[1] <= 0){
         stop();
         return
     }
@@ -21,18 +24,22 @@ function countdown () {
     minutes < 10 ? minutes = "0" + minutes : void(0);
 
     document.querySelector('#clockText').textContent = `${minutes}:${seconds}`;
-    console.log({arr,toSeconds, minutes, seconds});
 
     if(minutes === "00" && seconds === "00"){
         document.querySelector('#clockText').textContent = `00:00`;
         clearInterval(startClock);  
 /*         playSound(); */
-        timeToRest();
+/*         breakCounter++;
+        breakCounter < 4 ? breakState("short") : () => {
+            breakState("long");
+            breakCounter = 0;
+        } */
+        pomodoroDone();
 
     }
 }
 
-function timeToRest(){
+function pomodoroDone(){
     document.querySelector('h2').textContent = "It's time to rest!";
     document.getElementById('bodyWrap').style.background = "#48A9A6";
     document.querySelector('#startBtn').textContent = 'Reset'
@@ -56,6 +63,7 @@ function start (){
 
 function stop(){
     clearInterval(startClock)
+    startClock = false;
     changeStartBtn("start");
 
 }
@@ -65,22 +73,35 @@ function resetTimer(){
     document.querySelector('h2').textContent = "It's time to work!";
     document.getElementById('bodyWrap').style.background = "#D92B33";
     document.querySelector("#clockText").textContent = initialClock;
+    breakIdenty = false;
     document.querySelector('#startBtn').setAttribute('onclick', `start()`)
+    start();
+
+}
+
+function breakState(type) {
+    document.querySelector('h2').textContent = "It's time to rest!";
+    document.getElementById('bodyWrap').style.background = "#48A9A6";
+    if(type === "short"){
+        document.querySelector("#clockText").textContent = shortBreak;
+        breakIdenty = type;
+        return
+    }else if (type === "long") {
+        document.querySelector("#clockText").textContent = longBreak;
+        breakIdenty = type;
+        return
+    }
 }
 
 function sBreak(){
     stop();
-    document.querySelector('h2').textContent = "It's time to rest!";
-    document.getElementById('bodyWrap').style.background = "#48A9A6";
-    document.querySelector("#clockText").textContent = shortBreak;
+    breakState("short");
     start();
 }
 
 function lBreak(){
     stop();
-    document.querySelector('h2').textContent = "It's time to rest!";
-    document.getElementById('bodyWrap').style.background = "#48A9A6";
-    document.querySelector("#clockText").textContent = longBreak;
+    breakState("long");
     start();
 }
 
@@ -121,6 +142,16 @@ function saveCustoms(){
         }
     }
     modal.style.display ='none';
+    if(startClock === false){
+        if(breakIdenty === false){
+            document.querySelector("#clockText").textContent = initialClock;
+        }else if(breakIdenty === "short"){
+            document.querySelector("#clockText").textContent = shortBreak;
+        }else if(breakIdenty === "long"){
+            document.querySelector("#clockText").textContent = longBreak;
+        }
+       
+    }
 }
 
 function resetCustoms(){
