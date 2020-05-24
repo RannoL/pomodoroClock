@@ -7,7 +7,7 @@ function countdown () {
     
     let clockText = document.querySelector('#clockText').textContent;
     let arr = clockText.split(":");
-    
+
     if(arr[0] <= 0){
         stop();
         return
@@ -100,23 +100,44 @@ function saveCustoms(){
     for(i = 0; i < cstmTimes.length - 2; i++){
         switch(i){
             case 0:
-                console.log("case 0");
                 initialClock = cstmTimes.elements[i].value;
+                cstmTimes.elements[i].placeholder = initialClock;
                 //Otherwise clock would show 1:00
                 initialClock < 10 ? initialClock = "0" + initialClock + ":00" 
                 : initialClock += ":00";
                 break;
             case 1:
                 shortBreak = cstmTimes.elements[i].value;
+                cstmTimes.elements[i].placeholder = shortBreak;
                 shortBreak < 10 ? shortBreak = "0" + shortBreak + ":00" 
                 :shortBreak+= ":00";
                 break;
             case 2:
                 longBreak = cstmTimes.elements[i].value;
+                cstmTimes.elements[i].placeholder = longBreak;
                 longBreak < 10 ? longBreak = "0" + longBreak + ":00" 
                 :longBreak+= ":00";
                 break;
         }
     }
     modal.style.display ='none';
+}
+
+function resetCustoms(){
+    const cstmTimes = document.querySelector("#cstmTimesForm");
+
+    for(i=0;i < cstmTimes.length-2;i++){
+        switch(i){
+            case 0:
+                cstmTimes.elements[i].value = "25";
+                break;
+            case 1:
+                cstmTimes.elements[i].value = "5";
+                break;
+            case 2:
+                cstmTimes.elements[i].value = "10";
+                break;
+        }
+    }
+    saveCustoms();
 }
