@@ -1,6 +1,6 @@
 let startClock = false;
 let pomodoro;
-let breakIdenty;
+let breakIdenty = false;
 /* let breakCount = 0; */
 let initialClock = "25:00";
 let shortBreak = "05:00";
@@ -28,7 +28,7 @@ function countdown () {
     if(minutes === "00" && seconds === "00"){
         document.querySelector('#clockText').textContent = `00:00`;
         clearInterval(startClock);  
-/*         playSound(); */
+        playSound();
 /*         breakCounter++;
         breakCounter < 4 ? breakState("short") : () => {
             breakState("long");
@@ -57,7 +57,7 @@ function changeStartBtn (state) {
 }
 
 function start (){
-    startClock = setInterval(countdown, 1000);
+    startClock = setInterval(countdown, 10);
     changeStartBtn("stop");
 }
 
@@ -171,4 +171,19 @@ function resetCustoms(){
         }
     }
     saveCustoms();
+}
+
+function playSound(){
+    const sound = new Audio('sounds/digital_alarm.mp3');
+/*     let repeatCount = 2;
+
+    sound.addEventListener('ended', () => {
+        repeatCount--;
+        if (repeatCount > 0) {
+            sound.currentTime = 0;
+            sound.play();
+        }
+    },false) */
+    sound.play();
+    sound.volume = 0.1;
 }
