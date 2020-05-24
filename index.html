@@ -15,9 +15,47 @@
                 <h1>Pomodoro Clock</h1>
                 <h2>It's time to work!</h2>                
             </div>
+
             <span id="settingsWrap">
-                <button>Settings</button>
+                <button id="settings" onclick="openSettings()">Settings</button>
+
+                <div id="modalWrap" class="modal">
+                    <div id="modalContent">
+                        <div id="modalHeader">
+                            <span id="close">&times;</span>
+                            <h1>Settings</h1>
+                        </div>
+                        <div id="modalBody">
+                            <div id="customTimesHeader">
+                                <h1>Set Custom Times</h1>
+                            </div> 
+                            <form id ="cstmTimesForm" name="customTimes" onsubmit="return false">
+                                <div id="customTimesBody">
+                                    <div id="pMinutes" class="customTimesInputWrap">
+                                        <label for="pomodroLenght">Pomodoro</label>
+                                        <input type="number" id="pomodroMintues" name="minutues" min="1">
+                                    </div>
+                                    
+                                    <div id="sMintues" class="customTimesInputWrap">
+                                        <label for="shortBreakLenght">Short Break</label>
+                                        <input type="number" id="shortBreakMintues" name="sBreakminutues" min="1">
+                                    </div>
+        
+                                    <div id="lMintues" class="customTimesInputWrap">
+                                        <label for="longBreakLenght">Long Break</label>
+                                        <input type="number" id="longBreakMintues" name="lBreakminutues" min="1">
+                                    </div>
+                                </div>
+                                <div id="submitsWrap">
+                                    <input id="saveBtn" type="submit" value="Save" onclick="saveCustoms()">
+                                    <input id="resetBtn" type="submit" value="Reset">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </span>
+
         </header>
         <main>
         
@@ -37,7 +75,7 @@
             </div>
         </main>
         <footer>
-                <a href="https://github.com/RannoL/pomodoroClock" target="_blank">
+                <a href="https://github.com/RannoL/pomodoroClock">
                     <img src="imgs/github.png" alt="Github repository">
                 </a>
         </footer>
