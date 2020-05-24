@@ -5,6 +5,7 @@ let breakIdenty = false;
 let initialClock = "25:00";
 let shortBreak = "05:00";
 let longBreak = "10:00";
+let soundVolume = 100;
 
 function countdown () {
     
@@ -57,7 +58,7 @@ function changeStartBtn (state) {
 }
 
 function start (){
-    startClock = setInterval(countdown, 10);
+    startClock = setInterval(countdown, 1000);
     changeStartBtn("stop");
 }
 
@@ -116,7 +117,9 @@ function openSettings(){
 function saveCustoms(){
     const modal = document.querySelector("#modalWrap");
     const cstmTimes = document.querySelector("#cstmTimesForm");
-
+    const options = document.querySelector('#volumes');
+    soundVolume = options.options[options.selectedIndex].value;
+    console.log(soundVolume);
     //2 last values are submits
     for(i = 0; i < cstmTimes.length - 2; i++){
         switch(i){
@@ -142,6 +145,7 @@ function saveCustoms(){
         }
     }
     modal.style.display ='none';
+
     if(startClock === false){
         if(breakIdenty === false){
             document.querySelector("#clockText").textContent = initialClock;
@@ -150,7 +154,6 @@ function saveCustoms(){
         }else if(breakIdenty === "long"){
             document.querySelector("#clockText").textContent = longBreak;
         }
-       
     }
 }
 
@@ -185,5 +188,5 @@ function playSound(){
         }
     },false) */
     sound.play();
-    sound.volume = 0.1;
+    sound.volume = soundVolume/100;
 }

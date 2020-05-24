@@ -83,9 +83,24 @@ header {
     flex-flow: column wrap;
 }
 
-#customTimesHeader{
+#modalBody h2{
     margin-bottom: 2%;
-    font-size: 70%;
+    font-size: 110%;
+}
+
+#customTimesHeader{
+    width: 100%;
+}
+
+#customTimesBody{
+    margin-left: 1%;
+}
+
+#soundVolumeWrap{
+    margin-left: 1%;
+}
+#volumes {
+    margin-bottom: 20%;
 }
 
 #customTimesBody {
