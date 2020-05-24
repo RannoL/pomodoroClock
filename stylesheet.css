@@ -43,6 +43,10 @@ header {
     margin: 15px 15px 0 0;
 }
 
+#settings {
+    font-size: 100%;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -167,12 +171,12 @@ header {
     display: flex;
     flex-wrap: wrap;
     position: fixed;
-    margin-top: -250px;
-    margin-left: -400px;
+    margin-top: -15%;
+    margin-left: -30%;
     top: 50%;
     left: 50%;
-    width: 800px;
-    height: 300px;
+    width: 60%;
+    height: 30%;
     justify-content: center;
     align-content: center;
     background-color: #D92B33;
@@ -247,4 +251,107 @@ a:hover {
 footer img{
     width: 80px;
     height: 80px;
+}
+
+@media (max-width: 768px){
+    #bodyWrap{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        border: none;
+    }
+
+    #choicesWrap{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        height: fit-content;
+    }
+
+    #choicesWrap button{
+        margin-bottom: 1.5%;
+        border: 2px solid #3A322E;
+        border-radius: 1%;
+    }
+
+    #settings {
+        font-size: 110%;
+    }
+
+    #modalContent{
+        width: 50%;
+        font-size: 110%;
+    }
+
+    #volumes{
+        font-size: 90%;
+    }
+
+
+    #submitsWrap{
+        margin-top: 15%;
+    }
+
+    #submitsWrap input {
+        font-size: 120%;
+    }
+}
+
+@media (min-width: 768px){
+    
+    #bodyWrap{
+        top: 30%;
+    }
+
+    #modalContent{
+        width: 50%;
+        zoom: 1.1;
+    }
+
+    #submitsWrap{
+        margin-top: 15%;
+    }
+}
+
+@media (min-width: 992px){
+    #bodyWrap{
+        top: 35%;
+    }
+}
+
+
+@media(min-width: 1200px){
+    #bodyWrap{
+        top: 45%;
+    }
+
+    #modalContent{
+        margin-top: 8%;
+    }
+}
+
+@media(min-width: 1900px){
+    #bodyWrap{
+        top: 55%;
+        height: 45%;
+        align-content: space-around;
+    }
+
+    #modalContent{
+        width: 50%;
+        font-size: 110%;
+        margin-top: 5%;
+        height: 50%;
+    }
+
+    #volumes{
+        font-size: 100%;
+    }
+
+    #submitsWrap{
+        margin-top: 5%;
+    }
 }
